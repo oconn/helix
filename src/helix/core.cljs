@@ -2,7 +2,7 @@
   (:refer-clojure :exclude [type])
   (:require [goog.object :as gobj]
             [helix.impl.props :as impl.props]
-            [helix.impl.classes]
+            [helix.impl.class]
             [cljs-bean.core :as bean]
             ["react" :as react])
   (:require-macros [helix.core]))
@@ -92,7 +92,7 @@
         (-type [_] type))))
 
 
-(defn- extract-cljs-props
+(defn extract-cljs-props
   [o]
   (bean/bean o))
 
@@ -112,7 +112,7 @@
                    (extract-cljs-props (.-props ^js this))
                    (.-state ^js this)))]
     (gobj/set spec "render" render')
-    (helix.impl.classes/createComponent react/Component spec statics)))
+    (helix.impl.class/createComponent react/Component spec statics)))
 
 (comment
   (def MyComponent

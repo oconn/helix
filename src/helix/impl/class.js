@@ -1,6 +1,4 @@
-goog.provide("helix.impl.classes");
-
-helix.impl.classes.createComponent = function createComponent(superclass, spec, statics) {
+export function createComponent(superclass, spec, statics) {
   let component = class HelixComponent extends superclass {
     constructor(props) {
       super(props);
